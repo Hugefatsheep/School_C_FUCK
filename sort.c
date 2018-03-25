@@ -47,3 +47,21 @@ int RemoveDuplicates(int socre[], int n)       //remove duplicates
 	}
 	return (n - m);
 }
+
+void InsertionSort(int *array, int n)       //插入排序      n为数组元素个数
+{
+	int i = 0;
+	int j = 0;
+	int tmp = 0;
+	for (i = 1; i < n; i++)            //算法时间复杂度：O(n-1)
+	{
+		tmp = array[i];//从待插入组取出第一个元素。   
+		j = i - 1; //i-1即为有序组最后一个元素（与待插入元素相邻）的下标   
+		while (j >= 0 && tmp<array[j])  //注意判断条件为两个，j>=0对其进行边界限制。第二个为插入判断条件   
+		{
+			array[j + 1] = array[j];//若不是合适位置，有序组元素向后移动   
+			j--;
+		}
+		array[j + 1] = tmp;//找到合适位置，将元素插入。   
+	}
+}
